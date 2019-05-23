@@ -24,7 +24,7 @@ const component = (props) => {
                                 alt="aws"
                             />
                             <span className='aws-title'>
-                                Estimation Tool
+                                Voting App
                             </span>
                         </div>
                     </Grid.Column>
