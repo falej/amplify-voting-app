@@ -9,6 +9,11 @@
             "UnauthRoleName": "amplify-voting-app-dev-20190523103356-unauthRole",
             "StackName": "amplify-voting-app-dev-20190523103356",
             "StackId": "arn:aws:cloudformation:us-east-1:466886189766:stack/amplify-voting-app-dev-20190523103356/2e660d80-7d70-11e9-b128-127a71eef55e"
+        },
+        "categories": {
+            "auth": {
+                "VotingAppAuth": {}
+            }
         }
     }
 }
