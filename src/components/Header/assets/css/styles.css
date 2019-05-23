@@ -1,0 +1,20 @@
+.aws-header {
+    display:-webkit-box;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-box-align:center;
+	-ms-flex-align:center;
+	align-items:center;
+}
+.aws-logo {
+    width: 60px;
+    margin: 0px 10px;
+}
+.aws-title {
+    color: #FFFFFF;
+    font-size: 1.8em;
+}
+/* Semantic-UI Customizations */
+.sui-grid-row {
+    background-color: #232F3E !important;
+}

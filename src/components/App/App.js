@@ -1,6 +1,11 @@
 /* react */
 import React from 'react';
-import { Component } from 'react';
+import {
+    Component,
+    Fragment
+} from 'react';
+/* app  */
+import Header from '../Header';
 
 class App extends Component {
 
@@ -9,7 +14,11 @@ class App extends Component {
         console.log('Component [App] render');
 
         return (
-            <div>Component [App]</div>
+            <Fragment>
+                <header>
+                    <Header />
+                </header>
+            </Fragment>
         );
 
     }
