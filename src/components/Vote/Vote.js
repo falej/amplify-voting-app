@@ -13,16 +13,7 @@ const component = (props) => {
 
     console.log('Component [Vote] render');
 
-    let content = (
-        <Segment basic>
-            <Button icon color='green' size='large'>
-                <Icon name='thumbs up outline' />
-            </Button>
-            <Button icon color='red' size='large'>
-                <Icon name='thumbs down outline' />
-            </Button>
-        </Segment>
-    );
+    let content = null;
 
     if (props.status === 'LOADING_VOTE') {
         content = (
@@ -45,8 +36,7 @@ const component = (props) => {
                         </Button>
                     </Segment>
                 );
-            }
-            if (vote.vote === 'N') {
+            } else if (vote.vote === 'N') {
                 content = (
                     <Segment basic>
                         <Button icon color='red' disabled size='large'>
@@ -54,7 +44,32 @@ const component = (props) => {
                         </Button>
                     </Segment>
                 );
+            } else {
+                content = (
+                    <Segment basic>
+                        <Button basic disabled color='red' size='large'>
+                            ERROR
+                        </Button>
+                    </Segment>
+                );
             }
+        } else {
+
+            let username = props.data.username;
+            let video = props.data.video;
+
+            content = (
+                <Segment basic>
+                    <Button icon color='green' size='large'
+                        onClick={() => props.onClickVoteHandler(username,video,'Y')}>
+                        <Icon name='thumbs up outline' />
+                    </Button>
+                    <Button icon color='red' size='large'
+                        onClick={() => props.onClickVoteHandler(username,video,'N')}>
+                        <Icon name='thumbs down outline' />
+                    </Button>
+                </Segment>
+            );
         }
     }
 

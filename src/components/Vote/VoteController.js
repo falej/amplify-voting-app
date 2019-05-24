@@ -13,7 +13,7 @@ class VoteController extends Component {
 
     state = {
         status: 'INIT',
-        data: null
+        data: {}
     }
 
     constructor(props) {
@@ -22,7 +22,47 @@ class VoteController extends Component {
     }
 
     onClickVoteHandler = (username,video,vote) => {
-        alert(username + '_' + video + '_' + vote);
+
+        let newState = {
+            ...this.state,
+            status: 'LOADING_VOTE'
+        };
+        this.setState(newState);
+
+        let requestParams = {
+            body: {
+                video: video,
+                username: username,
+                vote: vote
+            }
+        };
+        API.post('VotingAppAPI','/votes/put',requestParams)
+            .then( response => {
+                if (response.status === 0) {
+                    let newState = {
+                        ...this.state,
+                        status: 'LOADED_VOTE',
+                        data: {
+                            ...this.state.data,
+                            vote: response.payload.vote
+                        }
+                    };
+                    this.setState(newState);
+                } else {
+                    let newState = {
+                        ...this.state,
+                        status: 'ERROR'
+                    };
+                    this.setState(newState);
+                }
+            }).catch( error => {
+                console.log(error);
+                let newState = {
+                    ...this.state,
+                    status: 'ERROR'
+                };
+                this.setState(newState);
+            });
     }
 
     render() {
@@ -50,6 +90,15 @@ class VoteController extends Component {
             .then( response => {
                 let username = response.username;
                 let video = this.props.idVideo;
+                let newState = {
+                    ...this.state,
+                    data: {
+                        ...this.state.data,
+                        username: username,
+                        video: video
+                    }
+                };
+                this.setState(newState);
                 let requestParams = {
                     queryStringParameters: {
                         username: username,

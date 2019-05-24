@@ -45,6 +45,21 @@
                     ]
                 }
             ]
+        },
+        "VotingAppPutVote": {
+            "service": "Lambda",
+            "providerPlugin": "awscloudformation",
+            "build": true,
+            "dependsOn": [
+                {
+                    "category": "storage",
+                    "resourceName": "VotingAppVotes",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ]
         }
     },
     "api": {
@@ -63,6 +78,14 @@
                 {
                     "category": "function",
                     "resourceName": "VotingAppGetVote",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "VotingAppPutVote",
                     "attributes": [
                         "Name",
                         "Arn"
