@@ -9,6 +9,16 @@
                     "/GET"
                 ]
             }
+        },
+        {
+            "name": "/votes",
+            "lambdaFunction": "VotingAppGetVote",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/GET"
+                ]
+            }
         }
     ],
     "resourceName": "VotingAppAPI",
@@ -16,10 +26,13 @@
     "functionArns": [
         {
             "lambdaFunction": "VotingAppGetVideos"
+        },
+        {
+            "lambdaFunction": "VotingAppGetVote"
         }
     ],
     "privacy": {
-        "auth": 1,
+        "auth": 2,
         "unauth": 0,
         "authRoleName": "amplify-voting-app-dev-20190523103356-authRole",
         "unAuthRoleName": "amplify-voting-app-dev-20190523103356-unauthRole"
@@ -32,6 +45,15 @@
                 "Name",
                 "Arn"
             ]
+        },
+        {
+            "category": "function",
+            "resourceName": "VotingAppGetVote",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
         }
-    ]
+    ],
+    "uuid": "56aa3e88"
 }

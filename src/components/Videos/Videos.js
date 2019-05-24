@@ -48,7 +48,7 @@ const component = (props) => {
     if (props.status === 'LOADED_VIDEOS') {
         content = (
             <Segment basic>
-                <Card.Group stackable itemsPerRow={4}>
+                <Card.Group stackable itemsPerRow={3}>
                     {
                         Object.values(props.data.videos).map((video) => {
                             return (
@@ -78,7 +78,7 @@ const component = (props) => {
                     icon='frown'
                     header='Ups, something went wrong!'
                     content='Please try again later.'
-                />     
+                />    
             </Segment>
         );
     }
