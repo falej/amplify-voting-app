@@ -6,15 +6,23 @@ import {
     Dimmer,
     Loader,
     Icon,
-    Button,
-    Message
+    Button
 } from 'semantic-ui-react';
 
 const component = (props) => {
 
     console.log('Component [Vote] render');
 
-    let content = null;
+    let content = (
+        <Segment basic>
+            <Button icon color='green' size='large'>
+                <Icon name='thumbs up outline' />
+            </Button>
+            <Button icon color='red' size='large'>
+                <Icon name='thumbs down outline' />
+            </Button>
+        </Segment>
+    );
 
     if (props.status === 'LOADING_VOTE') {
         content = (
@@ -37,7 +45,8 @@ const component = (props) => {
                         </Button>
                     </Segment>
                 );
-            } else {
+            }
+            if (vote.vote === 'N') {
                 content = (
                     <Segment basic>
                         <Button icon color='red' disabled size='large'>
@@ -46,17 +55,6 @@ const component = (props) => {
                     </Segment>
                 );
             }
-        } else {
-            content = (
-                <Segment basic>
-                    <Button icon color='green' size='large'>
-                        <Icon name='thumbs up outline' />
-                    </Button>
-                    <Button icon color='red' size='large'>
-                        <Icon name='thumbs down outline' />
-                    </Button>
-                </Segment>
-            );
         }
     }
 

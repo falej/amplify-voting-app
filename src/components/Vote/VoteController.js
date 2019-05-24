@@ -21,12 +21,19 @@ class VoteController extends Component {
         Amplify.configure(awsmobile);
     }
 
+    onClickVoteHandler = (username,video,vote) => {
+        alert(username + '_' + video + '_' + vote);
+    }
+
     render() {
 
         console.log('Controller [VoteController] render');
 
         return (
-            <Vote status={this.state.status} data={this.state.data} />
+            <Vote
+                status={this.state.status}
+                data={this.state.data}
+                onClickVoteHandler={this.onClickVoteHandler} />
         );
 
     }
