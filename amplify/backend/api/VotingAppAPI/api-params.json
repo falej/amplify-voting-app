@@ -1,0 +1,37 @@
+{
+    "paths": [
+        {
+            "name": "/videos",
+            "lambdaFunction": "VotingAppGetVideos",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/GET"
+                ]
+            }
+        }
+    ],
+    "resourceName": "VotingAppAPI",
+    "apiName": "VotingAppAPI",
+    "functionArns": [
+        {
+            "lambdaFunction": "VotingAppGetVideos"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 0,
+        "authRoleName": "amplify-voting-app-dev-20190523103356-authRole",
+        "unAuthRoleName": "amplify-voting-app-dev-20190523103356-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "VotingAppGetVideos",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
