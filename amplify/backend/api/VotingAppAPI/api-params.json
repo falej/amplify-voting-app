@@ -1,0 +1,80 @@
+{
+    "paths": [
+        {
+            "name": "/videos",
+            "lambdaFunction": "VotingAppGetVideos",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/GET"
+                ]
+            }
+        },
+        {
+            "name": "/votes",
+            "lambdaFunction": "VotingAppGetVote",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/GET"
+                ]
+            }
+        },
+        {
+            "name": "/votes/put",
+            "lambdaFunction": "VotingAppPutVote",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST"
+                ]
+            }
+        }
+    ],
+    "resourceName": "VotingAppAPI",
+    "apiName": "VotingAppAPI",
+    "functionArns": [
+        {
+            "lambdaFunction": "VotingAppGetVideos"
+        },
+        {
+            "lambdaFunction": "VotingAppGetVote"
+        },
+        {
+            "lambdaFunction": "VotingAppPutVote"
+        }
+    ],
+    "privacy": {
+        "auth": 3,
+        "unauth": 0,
+        "authRoleName": "amplify-voting-app-dev-20190523103356-authRole",
+        "unAuthRoleName": "amplify-voting-app-dev-20190523103356-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "VotingAppGetVideos",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "VotingAppGetVote",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "VotingAppPutVote",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "32cb25c6"
+}
